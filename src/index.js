@@ -27,6 +27,7 @@ ReactDOM.render(
         {
           //if user go to the Route of hello,
           // we show the component of Hello
+          //All Route component need be nest in single <div>
         }
         <Route path="/hello" component={Hello}/>
         <Route path="/goodbye" component={GoodBye}/>
