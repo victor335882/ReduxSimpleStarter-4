@@ -8,6 +8,8 @@ class PostsIndex extends Component {
     this.props.fetchPosts();
   }
   renderPosts() {
+    //JavaScript map can only deal with arrays
+    //So we use lodash map to handle object here
     return _.map(this.props.posts, post => {
       return (
         <li className="list-group-item" key={post.id}>
