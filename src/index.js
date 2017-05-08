@@ -5,6 +5,7 @@ import { createStore, applyMiddleware } from 'redux';
 import { BrowserRouter, Route} from 'react-router-dom';
 import reducers from './reducers';
 import PostsIndex from './components/posts_index';
+import PostsNew from './components/posts_new';
 
 //when we think about make network request inside our action creator
 //we need to install axios to make actual request
@@ -17,6 +18,7 @@ ReactDOM.render(
     <BrowserRouter>
       <div>
        <Route path="/" component={PostsIndex}/>
+       <Route path="/posts/new" component={PostsNew}/>
       </div>
     </BrowserRouter>
   </Provider>
