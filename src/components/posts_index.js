@@ -9,8 +9,7 @@ class PostsIndex extends Component {
     this.props.fetchPosts();
   }
   renderPosts() {
-    //JavaScript map can only deal with arrays
-    //So we use lodash map to handle object here
+
     return _.map(this.props.posts, post => {
       return (
         <li className="list-group-item" key={post.id}>
@@ -36,12 +35,10 @@ class PostsIndex extends Component {
     )
   }
 }
-//whenever we want to update the application state from
-//reducer, we need to use mapStateToPosts
+
 function mapStateToProps(state) {
   return {posts:state.posts};
 }
 
-//if we didn't set mapStateToProps, we need write the form as below
-//export default connect(null, {fetchPosts})(PostsIndex);
+
 export default connect(mapStateToProps, {fetchPosts})(PostsIndex);
