@@ -17,8 +17,7 @@ ReactDOM.render(
   <Provider store={createStoreWithMiddleware(reducers)}>
     <BrowserRouter>
       <div>
-      //If the URL is "/posts/new" then only shows up {PostsNew}
-      //If the URL is "/" that will show up {PostsNew} and {PostsIndex}
+      
         <Switch>
           <Route path="/posts/new" component={PostsNew}/>
           <Route path="/" component={PostsIndex}/>
