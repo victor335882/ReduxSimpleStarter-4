@@ -13,6 +13,10 @@ class PostNew extends Component {
           type="text"
           {...field.input}
         />
+        {
+          //connect the name of <Field/> to our error fonction's properties
+        }
+        {field.meta.error}
       </div>
     )
 
@@ -28,7 +32,7 @@ class PostNew extends Component {
         />
         <Field
           label111="Categories"
-          name="tags"
+          name="categories"
           component={this.renderField}
         />
         <Field
@@ -52,12 +56,12 @@ function validate(values) {
     errors.title = "Enter a title";
   }
   if (!values.categories){
-    errors.cotegories = 'Enter some categories';
+    errors.categories = 'Enter some categories';
   }
-  if (!values.categories){
+  if (!values.content){
     errors.content = 'Enter some content please';
   }
-  
+
   //if errors is empty, the form is fine to submit
   //If error has *any* properties, redux form assumes form is invalid
   return errors;
