@@ -27,7 +27,7 @@ class PostNew extends Component {
           component={this.renderField}
         />
         <Field
-          label111="Tags"
+          label111="Categories"
           name="tags"
           component={this.renderField}
         />
@@ -41,6 +41,31 @@ class PostNew extends Component {
   }
 }
 
+//Add a help function to validate the input of form
+//whenever the user submit it
+function validate(values) {
+  //console.log(values)->{title:'afasd', categories:'afdf', content:'afdas'}
+  const errors ={};
+
+  //Validate the inputs from 'value'
+  if (!values.title) {
+    errors.title = "Enter a title";
+  }
+  if (!values.categories){
+    errors.cotegories = 'Enter some categories';
+  }
+  if (!values.categories){
+    errors.content = 'Enter some content please';
+  }
+  
+  //if errors is empty, the form is fine to submit
+  //If error has *any* properties, redux form assumes form is invalid
+  return errors;
+}
+
+//Passing our validate function to our ReduxForm as a action calles
+//validate, it will be called automatically whenever the user submit the form
 export default reduxForm({
+  validate,
   form: 'PostNewForm'
 })(PostNew);
