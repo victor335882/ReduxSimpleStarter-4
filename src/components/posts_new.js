@@ -4,20 +4,21 @@ import {Field, reduxForm} from 'redux-form';
 class PostNew extends Component {
 
   renderField(field){
+
+    //field.meta.touched nest to touched
+    const { meta : { touched , error } } = field;
+    const className = `form-group ${ touched && error ? 'has-danger' : ''}` ;
     return (
-      <div className="form-group">
+      <div className={className}>
         <label>{field.label111}</label>
         <input
           className="form-control"
           type="text"
           {...field.input}
         />
-        {
-          // if the user is touched the input then
-          //shows the error message of validations
-          //otherwise show the empty string
-        }
-        {field.meta.touched ? field.meta.error : ''}
+        <div className = 'text-help'>
+          {touched ? error : ''}
+        </div>
       </div>
     )
 
