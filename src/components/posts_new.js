@@ -21,10 +21,30 @@ class PostNew extends Component {
     )
 
   }
+  onSubmit(values) {
+    //this === component
+    console.log(values);
+  }
 
   render() {
+    //handleSubmit is a proporty that will be passing to
+    //component on beheave as redux-form
+    const {handleSubmit}=this.props;
+
     return(
-      <form>
+
+        //redux-form handle the states, values and validations of our form
+        //It not handle something like posting the data to backend serce and save it
+
+        //onSubmit will run in the beginning when the <form> is run
+        //when we submit the form,handleSubmit take the function,onSubmit, we defined.
+        //and if the validation id pass and every thing ok
+        //it will pass the value to the function we define outside the component
+
+        //we define this.onSubmit.bind(this) because
+        //we use this.onSubmit as a callback function
+        //it will be exacute in different context outside the component
+      <form onSubmit = {handleSubmit(this.onSubmit.bind(this))}>
         <Field
           label111="Title For Post"
           name="title"
@@ -40,6 +60,7 @@ class PostNew extends Component {
           name="content"
           component={this.renderField}
         />
+        <button type="submit" className="btn btn-primary">Submit</button>
       </form>
     );
   }
