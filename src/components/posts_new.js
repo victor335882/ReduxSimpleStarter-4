@@ -12,8 +12,12 @@ class PostNew extends Component {
           type="text"
           {...field.input}
         />
-
-        {field.meta.error}
+        {
+          // if the user is touched the input then
+          //shows the error message of validations
+          //otherwise show the empty string
+        }
+        {field.meta.touched ? field.meta.error : ''}
       </div>
     )
 
