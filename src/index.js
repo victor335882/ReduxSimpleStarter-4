@@ -6,6 +6,7 @@ import { BrowserRouter, Route, Switch} from 'react-router-dom';
 import reducers from './reducers';
 import PostsIndex from './components/posts_index';
 import PostsNew from './components/posts_new';
+import PostsShow from './components/posts_show';
 
 //when we think about make network request inside our action creator
 //we need to install axios to make actual request
@@ -17,9 +18,13 @@ ReactDOM.render(
   <Provider store={createStoreWithMiddleware(reducers)}>
     <BrowserRouter>
       <div>
-      
+
         <Switch>
+        //if we put "/posts/:id" at first
+        //"/posts/new" will link to {PostsShow}
+        //just the same with "/posts/:id"
           <Route path="/posts/new" component={PostsNew}/>
+          <Route path="/posts/:id" component={PostsShow}/>
           <Route path="/" component={PostsIndex}/>
         </Switch>
       </div>
