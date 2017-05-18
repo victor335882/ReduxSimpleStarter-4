@@ -9,7 +9,7 @@ class PostNew extends Component {
 
   renderField(field){
 
-    //field.meta.touched nest to touched
+
     const { meta : { touched , error } } = field;
     const className = `form-group ${ touched && error ? 'has-danger' : ''}` ;
     return (
@@ -27,8 +27,6 @@ class PostNew extends Component {
     )
 
   }
-  //whenever we think about save data or making api request
-  //we always thinking about actions creators
 
   onSubmit(values) {
     this.props.createPost(values);
@@ -76,7 +74,6 @@ function validate(values) {
 }
 
 
-//combine reduxForm and connect helpers together
 export default reduxForm({
   validate,
   form: 'PostNewForm'
