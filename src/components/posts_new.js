@@ -9,7 +9,6 @@ class PostNew extends Component {
 
   renderField(field){
 
-
     const { meta : { touched , error } } = field;
     const className = `form-group ${ touched && error ? 'has-danger' : ''}` ;
     return (
@@ -28,8 +27,12 @@ class PostNew extends Component {
 
   }
 
+//add another function to push the page back to home page
+//and set callback function in action files.
   onSubmit(values) {
-    this.props.createPost(values);
+    this.props.createPost(values, () => {
+      this.props.history.push('/');
+    });
   }
 
   render() {
@@ -72,6 +75,7 @@ function validate(values) {
   }
   return errors;
 }
+
 
 
 export default reduxForm({
