@@ -1,6 +1,9 @@
 import React,{Component} from 'react';
 import {Field, reduxForm} from 'redux-form';
 import {Link} from 'react-router-dom';
+import {connect} from 'react-redux';
+import {createPost} from '../actions';
+
 
 class PostNew extends Component {
 
@@ -24,9 +27,11 @@ class PostNew extends Component {
     )
 
   }
-  onSubmit(values) {
+  //whenever we think about save data or making api request
+  //we always thinking about actions creators
 
-    console.log(values);
+  onSubmit(values) {
+    this.props.createPost(values);
   }
 
   render() {
@@ -70,7 +75,11 @@ function validate(values) {
   return errors;
 }
 
+
+//combine reduxForm and connect helpers together
 export default reduxForm({
   validate,
   form: 'PostNewForm'
-})(PostNew);
+})(
+  connect(null,{createPost})(PostNew)
+);
