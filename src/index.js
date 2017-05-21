@@ -25,10 +25,10 @@ ReactDOM.render(
           //"/posts/new" will link to {PostsShow}
           //just the same with "/posts/:id"
         }
-        
-          <Route path="/posts/new" component={PostsNew}/>
-          <Route path="/posts/:id" component={PostsShow}/>
-          <Route path="/" component={PostsIndex}/>
+
+          <Route path="/ReduxSimpleStarter-4/posts/new" component={PostsNew}/>
+          <Route path="/ReduxSimpleStarter-4/posts/:id" component={PostsShow}/>
+          <Route path="/ReduxSimpleStarter-4/" component={PostsIndex}/>
         </Switch>
       </div>
     </BrowserRouter>
