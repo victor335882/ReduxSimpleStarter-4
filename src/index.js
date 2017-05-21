@@ -20,9 +20,12 @@ ReactDOM.render(
       <div>
 
         <Switch>
-        //if we put "/posts/:id" at first
-        //"/posts/new" will link to {PostsShow}
-        //just the same with "/posts/:id"
+        {
+          //if we put "/posts/:id" at first
+          //"/posts/new" will link to {PostsShow}
+          //just the same with "/posts/:id"
+        }
+        
           <Route path="/posts/new" component={PostsNew}/>
           <Route path="/posts/:id" component={PostsShow}/>
           <Route path="/" component={PostsIndex}/>

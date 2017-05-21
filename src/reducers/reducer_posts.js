@@ -9,7 +9,7 @@ export default function(state = {}, action) {
       //newState[post.id]=post;
       //reture newState;
       //with ES6 we make the codes clever
-      return {...state, [action.payload.data.id]:action.payload.data}
+      return {...state, [action.payload.data.id]:action.payload.data};
     case FETCH_POSTS:
       return _.mapKeys(action.payload.data,'id');
     default:
