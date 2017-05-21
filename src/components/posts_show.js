@@ -15,7 +15,7 @@ class PostsShow extends Component {
     this.props.deletePost(id, () => {
       this.props.history.push('/')
     });
-    console.log(this.props)
+
   }
 
   render() {
