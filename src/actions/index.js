@@ -14,9 +14,7 @@ export function fetchPosts() {
   };
 }
 
-//add callback function
 export function createPost(values, callback) {
-  //automatically call the callback function after we post the data to the server
   const request = axios.post(`${ROOT_URL}/posts${API_KEY}`, values).then(() => callback());
 
   return {
