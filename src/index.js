@@ -26,9 +26,9 @@ ReactDOM.render(
           //just the same with "/posts/:id"
         }
 
-          <Route path="/ReduxSimpleStarter-4/posts/new" component={PostsNew}/>
-          <Route path="/ReduxSimpleStarter-4/posts/:id" component={PostsShow}/>
-          <Route path="/ReduxSimpleStarter-4/" component={PostsIndex}/>
+          <Route path="/posts/new" component={PostsNew}/>
+          <Route path="/posts/:id" component={PostsShow}/>
+          <Route path="/" component={PostsIndex}/>
         </Switch>
       </div>
     </BrowserRouter>
